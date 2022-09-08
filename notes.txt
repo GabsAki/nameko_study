@@ -1,0 +1,2 @@
+docker run -p 5672:5672 --hostname nameko-rabbitmq rabbitmq:3
+docker run -p 6379:6379 --name nameko-redis redis

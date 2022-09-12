@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  nameko-rabbit:
+    image: rabbitmq:3
+    ports:
+      - "5672:5672"
+
+  redis:
+    image: redis
+    ports: 
+      - "6379:6379"
+
+  airports:
+    build:
+      context: ./airports
+    container_name: airports
+    ports:
+      - "80:80"
+    depends_on:
+      - nameko-rabbit
+      - redis

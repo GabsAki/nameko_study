@@ -15,8 +15,25 @@ services:
     build:
       context: ./airports
     container_name: airports
-    ports:
-      - "80:80"
     depends_on:
       - nameko-rabbit
       - redis
+    network_mode: "host"
+
+  gateway:
+    build:
+      context: ./gateway
+    container_name: gateway
+    depends_on:
+      - nameko-rabbit
+      - redis
+    network_mode: "host"
+
+  trips:
+    build:
+      context: ./trips
+    container_name: trips
+    depends_on:
+      - nameko-rabbit
+      - redis
+    network_mode: "host"

@@ -20,9 +20,9 @@ COPY trips.py ./
 
 RUN chmod +x ./run.sh
 
-ENV RABBIT_HOST=localhost
+ENV RABBIT_HOST=nameko-rabbit
 ENV RABBIT_PORT=5672
-ENV REDIS_HOST=localhost
+ENV REDIS_HOST=redis
 ENV REDIS_PORT=6379
 
 CMD ["./run.sh"]

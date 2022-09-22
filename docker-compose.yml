@@ -11,29 +11,32 @@ services:
     ports: 
       - "6379:6379"
 
-  airports:
+  airport:
     build:
       context: ./airports
+      network: host
     container_name: airports
     depends_on:
       - nameko-rabbit
       - redis
-    network_mode: "host"
 
   gateway:
     build:
       context: ./gateway
+      network: host
     container_name: gateway
     depends_on:
       - nameko-rabbit
       - redis
-    network_mode: "host"
+    ports:
+      - "8000:8000"
 
-  trips:
+
+  trip:
     build:
       context: ./trips
+      network: host
     container_name: trips
     depends_on:
       - nameko-rabbit
       - redis
-    network_mode: "host"

@@ -11,6 +11,9 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 ENV PATH="/root/.local/bin:$PATH"
 
 RUN python -m pip install --upgrade pip
+
+# Unlike the original post, which used requirements txt, here we are using poetry.
+# Although it may be a little more bothersome to setup, it does make dependancy management easier.
 RUN poetry config virtualenvs.create false \
     && poetry install --no-dev --no-interaction
 

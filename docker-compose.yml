@@ -14,6 +14,8 @@ services:
   airport:
     build:
       context: ./airports
+      # This is the network utilized only for the build.
+      # Build fails if this is not specified in my case (might be my docker-compose configuration)
       network: host
     container_name: airports
     depends_on:

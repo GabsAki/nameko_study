@@ -1,6 +1,3 @@
-# Reference: 
-# https://medium.com/nerd-for-tech/introduction-to-python-microservices-with-nameko-435efed35dd5
-
 from nameko.rpc import rpc
 from time import sleep
 

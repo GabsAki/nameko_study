@@ -9,15 +9,15 @@ class GatewayService:
     trips_rpc = RpcProxy('trips_service')
 
     @http('GET', '/airport/<string:airport_id>')
-    def get_airport(self, request, aiport_id):
-        airport = self.airports_rpc.get(aiport_id)
+    def get_airport(self, request, airport_id):
+        airport = self.airports_rpc.get(airport_id)
         
-        return json.dumps({'aiport': airport})
+        return json.dumps({'airport': airport})
 
-    @http('POST', '/aiport')
-    def post_aiport(self, request):
+    @http('POST', '/airport')
+    def post_ariport(self, request):
         data = json.loads(request.get_data(as_text=True))
-        airport_id = self.airports_rpc.create(data['aiport'])
+        airport_id = self.airports_rpc.create(data['airport'])
 
         return airport_id
 
@@ -31,8 +31,8 @@ class GatewayService:
         data = json.loads(request.get_data(as_text=True))
         
         trip_id = self.trips_rpc.create(
-            data['aiport_from'],
-            data['aiport_to']
+            data['airport_from'],
+            data['airport_to']
         )
 
         return trip_id

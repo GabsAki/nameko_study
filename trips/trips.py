@@ -9,17 +9,17 @@ class TripsService:
 
     @rpc
     def get(self, trip_id):
-        trip = self.redis.get(trip_id)
+        trip = self.redis.hgetall(trip_id)
         
         return trip
 
     @rpc
-    def create(self, aiport_from_id, aiport_to_id):
+    def create(self, airport_from_id, airport_to_id):
         trip_id = uuid.uuid4().hex
         
-        self.redis.set(
+        self.redis.hmset(
             trip_id,
-            {"from": aiport_from_id, "to": aiport_to_id}
+            {"from": airport_from_id, "to": airport_to_id}
         )
 
         return trip_id

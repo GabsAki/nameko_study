@@ -14,6 +14,7 @@ This was a good opportunity to learn more about docker-compose.
 - **redis** as a database to store entries and allow the microservices to retrieve them
 - **python** as the language the microservices were built on
 - **docker** to containerize the microservices
+- **shell** to setup the containers
 - **docker compose** to orquestrate the microservices
 - **poetry** as the dependency manager
 
